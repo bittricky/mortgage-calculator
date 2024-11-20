@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# Mortgage Calculator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple web application for calculating mortgage payments using various parameters
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ensure you have the following installed on your machine:
 
-## Expanding the ESLint configuration
+- [Node.js](https://nodejs.org/) (v18 or later recommended)
+- [PNPM](https://pnpm.io/) (preferred package manager)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Setup Instructions
 
-- Configure the top-level `parserOptions` property like this:
+1. Clone the repository or download the project files:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+   ```bash
+   git clone <repository-url>
+   cd mortgage-calculator
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+## Running the Application Locally
+
+1. Start the development server:
+
+   ```bash
+   pnpm dev
+   ```
+
+2. Open your browser and navigate to:
+
+   ```
+   http://localhost:5173
+   ```
+
+## Building for Production
+
+To create an optimized production build:
+
+```bash
+pnpm build
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+The output files will be located in the `dist` directory.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Linting and Code Quality
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Run ESLint to check for code issues:
+
+```bash
+pnpm lint
 ```
+
+## File Structure
+
+- **src/**: Contains all source code, including components, styles, and utilities.
+- **public/**: Static assets like images and meta files.
+- **package.json**: Project dependencies and scripts.
+- **postcss.config.js**: PostCSS configuration for Tailwind CSS and Autoprefixer.
+- **tailwind.config.js**: Tailwind CSS configuration.
+- **vite.config.ts**: Vite configuration file for building the application.
