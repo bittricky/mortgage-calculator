@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import RangeInput from "./RangeInput";
+import ResultCard from "./ResultCard";
 
 const Calculator = () => {
   const [loanAmount, setLoanAmount] = useState(100000);
@@ -69,7 +70,14 @@ const Calculator = () => {
           />
         </div>
 
-        {/* TODO: add display for output */}
+        <ResultCard
+          monthlyPayment={monthlyPayment}
+          loanAmount={loanAmount}
+          downPayment={downPayment}
+          totalInterest={
+            monthlyPayment * loanTerm * 12 - (loanAmount - downPayment)
+          }
+        />
       </div>
     </div>
   );
