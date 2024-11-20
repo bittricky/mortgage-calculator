@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import RangeInput from "./RangeInput";
 
 const Calculator = () => {
   const [loanAmount, setLoanAmount] = useState(100000);
@@ -27,8 +28,48 @@ const Calculator = () => {
 
       <div className="grid md:grid-cols-2 gap-12">
         <div className="space-y-6">
-          {/* TODO: add the range inputs & display card */}
+          <RangeInput
+            label="Loan Amount"
+            value={loanAmount}
+            onChange={setLoanAmount}
+            min={0}
+            max={1000000}
+            step={1000}
+            prefix="$"
+          />
+
+          <RangeInput
+            label="Down Payment"
+            value={downPayment}
+            onChange={setDownPayment}
+            min={0}
+            max={loanAmount}
+            step={1000}
+            prefix="$"
+          />
+
+          <RangeInput
+            label="Interest Rate"
+            value={interestRate}
+            onChange={setInterestRate}
+            min={0}
+            max={10}
+            step={0.1}
+            suffix="%"
+          />
+
+          <RangeInput
+            label="Loan Term"
+            value={loanTerm}
+            onChange={setLoanTerm}
+            min={5}
+            max={30}
+            step={1}
+            suffix=" years"
+          />
         </div>
+
+        {/* TODO: add display for output */}
       </div>
     </div>
   );
